@@ -1,0 +1,103 @@
+{
+    "manifest_version": 3,
+    "name": "SyTools",
+    "version": "0.1.2",
+    "description": "Kit de ferramentas e produtividade para a plataforma Sydle ONE",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_title": "SyTools",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": ["activeTab", "storage", "commands", "alarms", "notifications", "tabs"],
+    "content_scripts": [
+        {
+            "js": [
+                "lib/sweetalert2.all.min.js",
+                "lib/jquery.min.js",
+                "lib/jquery-ui.min.js",
+                "lib/renderjson.js",
+                "src/scripts/utils.js",
+                "src/scripts/storageHandler.js",
+                "src/scripts/core/ui.js",
+                "src/scripts/core/sydle-api.js",
+                "src/scripts/core/storage.js",
+                "src/scripts/core/filtros.js",
+                "src/scripts/core/diff.js",
+                "src/scripts/tools/listagem.js",
+                "src/scripts/tools/objetos.js",
+                "src/scripts/tools/comparar-historico.js",
+                "src/scripts/executor/executor.js",
+                "src/scripts/commands.js",
+                "src/scripts/index.js"
+            ],
+            "matches": ["https://*.sydle.one/*", "https://sydle.sefaz.pi.gov.br/*", "https://*.tcepa.tc.br/*", "https://*.tjce.jus.br/*"]
+        }
+    ],
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
+    "sandbox": {
+        "pages": ["sandbox/syntax-check.html"]
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "sandbox/syntax-check.html",
+                "sandbox/syntax-check.js",
+                "lib/typescript.min.js",
+                "lib/prettier/standalone.js",
+                "lib/prettier/babel.js",
+                "lib/prettier/estree.js",
+                "lib/sweetalert2.all.min.js",
+                "lib/jquery.min.js",
+                "lib/jquery-ui.min.js",
+                "lib/jquery-ui.min.css",
+                "lib/renderjson.js",
+                "src/styles/styles.css",
+                "src/styles/editor.css",
+                "icons/add-file.png",
+                "icons/add-folder.png",
+                "icons/delete.png",
+                "icons/play-button.png",
+                "icons/edit.png"
+            ],
+            "matches": ["https://*.sydle.one/*", "https://sydle.sefaz.pi.gov.br/*", "https://*.tcepa.tc.br/*", "https://*.tjce.jus.br/*"]
+        }
+    ],
+    "commands": {
+        "Deletar objeto": {
+            "suggested_key": { "default": "Alt+Q", "mac": "Alt+Q" },
+            "description": "Deletar objeto ativo"
+        },
+        "Copiar listagem": {
+            "description": "Copiar JSONs de todos os objetos da listagem ativa"
+        },
+        "Copiar JSON por referência": {
+            "description": "Copiar JSON de objetos por campo de referência da listagem"
+        },
+        "Copiar IDs filtrado": {
+            "description": "Copiar IDs filtrado (com filtros de usuário, data, campo)"
+        },
+        "Executor de scripts": {
+            "description": "Executor de scripts Sydle (salvar, editar, executar)"
+        },
+        "Remover objetos": {
+            "description": "Remover objetos em massa da classe ativa"
+        },
+        "Comparar histórico": {
+            "suggested_key": { "default": "Alt+H", "mac": "Alt+H" },
+            "description": "Comparar objeto ativo com revisão anterior (diff visual)"
+        },
+        "Listar objetos da classe": {
+            "description": "Abrir listagem de objetos da classe do objeto ativo"
+        },
+        "Reverter objetos": {
+            "description": "Reverter objetos em massa para uma revisão anterior"
+        }
+    }
+}

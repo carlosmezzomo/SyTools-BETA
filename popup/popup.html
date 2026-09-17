@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>SyTools</title>
+    <link rel="stylesheet" href="popupStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">SyTools</h1>
+      <span class="header-version">v0.1.1</span>
+    </header>
+
+    <main class="main">
+      <div class="button-group">
+        <button class="link-button danger" id="delete-object-button">
+          <i class="fa fa-trash"></i>
+          <span>Deletar Objeto Ativo</span>
+        </button>
+        <button class="link-button" id="copy-listing-button">
+          <i class="fa fa-copy"></i>
+          <span>Copiar Listagem</span>
+        </button>
+        <button class="link-button" id="copy-field-ids-button">
+          <i class="fa fa-list"></i>
+          <span>Copiar JSON por Referência</span>
+        </button>
+        <button class="link-button" id="copy-filtered-ids-button">
+          <i class="fa fa-filter"></i>
+          <span>Copiar IDs Filtrado</span>
+        </button>
+        <button class="link-button" id="execute-script-button">
+          <i class="fa fa-play"></i>
+          <span>Executor de Scripts</span>
+        </button>
+        <button class="link-button danger" id="remove-objects-button">
+          <i class="fa fa-eraser"></i>
+          <span>Remover Objetos</span>
+        </button>
+        <button class="link-button" id="compare-history-button">
+          <i class="fa fa-exchange"></i>
+          <span>Comparar Histórico</span>
+        </button>
+        <button class="link-button danger" id="revert-objects-button">
+          <i class="fa fa-history"></i>
+          <span>Reverter Objetos</span>
+        </button>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="button-group">
+        <button class="link-button" id="shortcuts-button">
+          <i class="fa fa-keyboard-o"></i>
+          <span>Configurar Atalhos</span>
+        </button>
+      </div>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
